@@ -201,11 +201,18 @@ export class SiteOptimizer {
           }
         }
 
-        const optimizedStats = await fs.stat(path.join(dirname, `${basename}_optimized${ext}`));
-        optimizedSize += optimizedStats.size;
+        // Check if the optimized file exists and get its stats
+        const optimizedPath = path.join(dirname, `${basename}_optimized${ext}`);
+        try {
+          const optimizedStats = await fs.stat(optimizedPath);
+          optimizedSize += optimizedStats.size;
 
-        // Replace original with optimized version
-        await fs.rename(path.join(dirname, `${basename}_optimized${ext}`), file);
+          // Replace original with optimized version
+          await fs.rename(optimizedPath, file);
+        } catch (statError) {
+          // If optimized file doesn't exist, count original size (no optimization occurred)
+          optimizedSize += stats.size;
+        }
       } catch (error) {
         logger.warn(`Failed to optimize image ${file}: ${error}`);
         optimizedSize += stats.size; // Count as no savings if optimization fails
