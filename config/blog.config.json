@@ -1,0 +1,80 @@
+{
+  "site": {
+    "title": "Fyer's Blog",
+    "description": "A personal blog about technology, development, and life",
+    "url": "https://fyerfyer.github.io/fyer-blog-template",
+    "author": {
+      "name": "Fyer",
+      "email": "fyer@example.com",
+      "url": "https://github.com/fyerfyer",
+      "avatar": "/assets/images/avatar.jpg"
+    },
+    "language": "en",
+    "timezone": "UTC"
+  },
+  "build": {
+    "inputDir": "./content",
+    "outputDir": "./dist",
+    "baseUrl": "/fyer-blog-template",
+    "includeDrafts": false,
+    "optimization": {
+      "minifyHTML": true,
+      "minifyCSS": true,
+      "minifyJS": true,
+      "optimizeImages": true,
+      "generateWebP": true,
+      "generateSitemap": true,
+      "generateRSS": true
+    }
+  },
+  "theme": {
+    "name": "default",
+    "customization": {
+      "primaryColor": "#3b82f6",
+      "fontFamily": "Inter, sans-serif",
+      "darkMode": true
+    }
+  },
+  "seo": {
+    "enableStructuredData": true,
+    "enableOpenGraph": true,
+    "enableTwitterCard": true,
+    "defaultImage": "/assets/images/og-default.jpg"
+  },
+  "features": {
+    "search": {
+      "enabled": true,
+      "engine": "simple"
+    },
+    "relatedPosts": {
+      "enabled": true,
+      "maxCount": 3,
+      "method": "tags"
+    },
+    "archives": {
+      "enabled": true,
+      "groupBy": "year"
+    },
+    "drafts": {
+      "enabled": true,
+      "previewMode": true
+    }
+  },
+  "feed": {
+    "rss": {
+      "enabled": true,
+      "filename": "rss.xml",
+      "maxItems": 20
+    },
+    "atom": {
+      "enabled": true,
+      "filename": "atom.xml",
+      "maxItems": 20
+    },
+    "json": {
+      "enabled": true,
+      "filename": "feed.json",
+      "maxItems": 20
+    }
+  }
+}
